@@ -256,54 +256,95 @@
 
   <script>
     // ================================================================
-    // 1. DADOS
+    // 1. DADOS COMPLETOS (com Kimi k2, Manus e Mimo)
     // ================================================================
     const AI_LINKS = {
+      // ========== TEXTO & COPY ==========
       text_generator: [
         { name: "Claude 3.5 Sonnet", url: "https://claude.ai", desc: "Melhor raciocínio e escrita natural" },
         { name: "ChatGPT-4o", url: "https://chat.openai.com", desc: "Multimodal e análise de dados" },
         { name: "Gemini Advanced", url: "https://gemini.google.com", desc: "Ecossistema Google integrado" },
-        { name: "NotebookLM", url: "https://notebooklm.google.com", desc: "RAG instantâneo com seus documentos" }
+        { name: "NotebookLM", url: "https://notebooklm.google.com", desc: "RAG instantâneo com seus documentos" },
+        { name: "DeepSeek V3", url: "https://chat.deepseek.com", desc: "Custo-benefício excelente para tarefas complexas" },
+        { name: "Grok (xAI)", url: "https://grok.x.ai", desc: "IA com acesso em tempo real ao X (Twitter)" },
+        { name: "Mistral Large", url: "https://mistral.ai", desc: "Modelo open-source competitivo ao GPT-4" },
+        { name: "Claude 3 Opus", url: "https://claude.ai", desc: "Raciocínio profundo e análise de documentos longos" },
+        { name: "Kimi k2", url: "https://kimi.moonshot.cn", desc: "Assistente chinês com 1M tokens e raciocínio avançado" }
       ],
+      // ========== IMAGEM & DESIGN ==========
       image_creator: [
         { name: "Midjourney", url: "https://www.midjourney.com", desc: "Qualidade artística superior" },
         { name: "Leonardo.ai", url: "https://leonardo.ai", desc: "Controle total e assets de jogos" },
         { name: "Ideogram", url: "https://ideogram.ai", desc: "Melhor para gerar textos dentro da imagem" },
-        { name: "Recraft", url: "https://www.recraft.ai", desc: "Design vetorial e ícones" }
+        { name: "Recraft", url: "https://www.recraft.ai", desc: "Design vetorial e ícones" },
+        { name: "Stable Diffusion 3", url: "https://stability.ai", desc: "Geração com controle de composição" },
+        { name: "Krea AI", url: "https://krea.ai", desc: "Geração em tempo real com edição interativa" },
+        { name: "Magnific AI", url: "https://magnific.ai", desc: "Upscale e detalhamento de imagens" }
       ],
+      // ========== DEV & CÓDIGO ==========
       code_assistant: [
         { name: "Google AI Studio", url: "https://aistudio.google.com", desc: "Playground para Gemini 1.5 Pro/Flash" },
         { name: "Cursor IDE", url: "https://cursor.sh", desc: "Editor de código nativo com IA" },
         { name: "GitHub Copilot", url: "https://github.com/features/copilot", desc: "Autocomplete dentro do VS Code" },
-        { name: "V0.dev", url: "https://v0.dev", desc: "Geração de interface frontend (React/Tailwind)" }
+        { name: "V0.dev", url: "https://v0.dev", desc: "Geração de interface frontend (React/Tailwind)" },
+        { name: "Replit AI", url: "https://replit.com", desc: "Ambiente colaborativo com IA" },
+        { name: "Tabnine", url: "https://tabnine.com", desc: "Autocomplete focado em privacidade" },
+        { name: "Phind", url: "https://phind.com", desc: "Busca para devs com respostas contextuais" },
+        { name: "Manus AI", url: "https://manus.ai", desc: "Automação de tarefas de desenvolvimento com IA" }
       ],
+      // ========== DATA SCIENCE ==========
       data_analyst: [
         { name: "Julius AI", url: "https://julius.ai", desc: "Data Science conversacional" },
         { name: "DeepNote", url: "https://deepnote.com", desc: "Jupyter Notebook colaborativo com IA" },
         { name: "Gingr", url: "https://www.gingr.ai", desc: "Visualização de dados complexos" }
       ],
+      // ========== PESQUISA ==========
       research_search: [
         { name: "Perplexity AI", url: "https://www.perplexity.ai", desc: "Busca em tempo real com citações" },
         { name: "Consensus", url: "https://consensus.app", desc: "Busca em artigos científicos" },
-        { name: "Elicit", url: "https://elicit.com", desc: "Automação de revisão de literatura" }
+        { name: "Elicit", url: "https://elicit.com", desc: "Automação de revisão de literatura" },
+        { name: "You.com", url: "https://you.com", desc: "Buscador com IA integrada e fontes citadas" },
+        { name: "ResearchRabbit", url: "https://researchrabbit.app", desc: "Descoberta de papers com visualização" },
+        { name: "Scite", url: "https://scite.ai", desc: "Verificação de citações e confiabilidade" }
       ],
-      translator: [
-        { name: "DeepL", url: "https://www.deepl.com", desc: "Tradução contextual precisa" },
-        { name: "ElevenLabs Dubbing", url: "https://elevenlabs.io/dubbing", desc: "Dublagem de vídeo automática" }
-      ],
+      // ========== ÁUDIO & MÚSICA ==========
       voice_synthesis: [
         { name: "ElevenLabs", url: "https://elevenlabs.io", desc: "Vozes sintéticas indistinguíveis da real" },
         { name: "Suno AI", url: "https://suno.com", desc: "Geração de músicas completas" },
-        { name: "Udio", url: "https://www.udio.com", desc: "Música de alta fidelidade" }
+        { name: "Udio", url: "https://www.udio.com", desc: "Música de alta fidelidade" },
+        { name: "Murf AI", url: "https://murf.ai", desc: "Narrações realistas para vídeos" },
+        { name: "Resemble AI", url: "https://resemble.ai", desc: "Clonagem de voz com emoção" },
+        { name: "Play.ht", url: "https://play.ht", desc: "Text-to-speech com vozes naturais e API" }
       ],
-      document_processor: [
-        { name: "ChatPDF", url: "https://www.chatpdf.com", desc: "Interaja com arquivos PDF" },
-        { name: "Humata", url: "https://www.humata.ai", desc: "Análise de contratos e papéis longos" }
-      ],
+      // ========== VÍDEO ==========
       video_editor: [
         { name: "Runway Gen-3", url: "https://runwayml.com", desc: "O estado da arte em vídeo generativo" },
         { name: "Luma Dream Machine", url: "https://lumalabs.ai/dream-machine", desc: "Vídeos realistas de alta qualidade" },
-        { name: "Kling AI", url: "https://klingai.com", desc: "Geração de vídeo com física realista" }
+        { name: "Kling AI", url: "https://klingai.com", desc: "Geração de vídeo com física realista" },
+        { name: "Sora (OpenAI)", url: "https://openai.com/sora", desc: "Vídeos fotorrealistas (beta)" },
+        { name: "HeyGen", url: "https://heygen.com", desc: "Avatares e clonagem de imagem para VSLs" },
+        { name: "Pika Labs", url: "https://pika.art", desc: "Geração de vídeos a partir de texto e imagens" },
+        { name: "Descript", url: "https://descript.com", desc: "Edição de vídeo e áudio por transcrição" }
+      ],
+      // ========== DOCUMENTOS ==========
+      document_processor: [
+        { name: "ChatPDF", url: "https://www.chatpdf.com", desc: "Interaja com arquivos PDF" },
+        { name: "Humata", url: "https://www.humata.ai", desc: "Análise de contratos e papéis longos" },
+        { name: "ChatDOC", url: "https://chatdoc.com", desc: "Análise e perguntas sobre documentos" },
+        { name: "Sharly AI", url: "https://sharly.ai", desc: "Extração de insights de contratos e relatórios" }
+      ],
+      // ========== TRADUÇÃO ==========
+      translator: [
+        { name: "DeepL", url: "https://www.deepl.com", desc: "Tradução contextual precisa" },
+        { name: "ElevenLabs Dubbing", url: "https://elevenlabs.io/dubbing", desc: "Dublagem de vídeo automática" },
+        { name: "Lingvanex", url: "https://lingvanex.com", desc: "Tradução com reconhecimento cultural" },
+        { name: "DeepL Write", url: "https://deepl.com/write", desc: "Revisão e aprimoramento de textos" }
+      ],
+      // ========== EDUCAÇÃO & APRENDIZADO (NOVA) ==========
+      education: [
+        { name: "Mimo", url: "https://mimo.org", desc: "Aprenda programação com exercícios interativos e IA" },
+        { name: "Khan Academy AI", url: "https://www.khanacademy.org", desc: "Tutoria personalizada com IA" },
+        { name: "Duolingo Max", url: "https://www.duolingo.com", desc: "Aprendizado de idiomas com IA conversacional" }
       ]
     };
 
@@ -316,7 +357,8 @@
       voice_synthesis: { icon: "🎧", title: "Áudio & Música", description: "Vozes neurais e composição musical.", status: "Online", category: "Áudio" },
       video_editor: { icon: "🎬", title: "Vídeo Gen", description: "Criação de vídeo a partir de texto.", status: "Beta", category: "Visual" },
       document_processor: { icon: "📄", title: "Docs Inteligentes", description: "RAG e análise de arquivos.", status: "Online", category: "Produtividade" },
-      translator: { icon: "🌍", title: "Tradução", description: "Adaptação cultural e linguística.", status: "Online", category: "Global" }
+      translator: { icon: "🌍", title: "Tradução", description: "Adaptação cultural e linguística.", status: "Online", category: "Global" },
+      education: { icon: "🎓", title: "Educação & Aprendizado", description: "Plataformas interativas com IA para aprendizado.", status: "Online", category: "Educação" }
     };
 
     // ================================================================
@@ -337,7 +379,7 @@
     createParticles();
 
     // ================================================================
-    // 3. RENDERIZAÇÃO (sem recarregar a página)
+    // 3. RENDERIZAÇÃO
     // ================================================================
     const app = document.getElementById('app');
 
@@ -347,7 +389,7 @@
         <p class="subtitle">Ecossistema Centralizado de Inteligência</p>
         <div class="stats-bar">
           <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Operacional</div></div>
-          <div class="stat-item"><div class="stat-number blue">20+</div><div class="stat-label">Ferramentas</div></div>
+          <div class="stat-item"><div class="stat-number blue">35+</div><div class="stat-label">Ferramentas</div></div>
           <div class="stat-item"><div class="stat-number white">PRO</div><div class="stat-label">Acesso</div></div>
         </div>
         <div class="ecosystem-container">
@@ -372,7 +414,6 @@
       html += `</div>`;
       app.innerHTML = html;
 
-      // Adiciona evento de clique nos cards
       document.querySelectorAll('.ai-card').forEach(card => {
         card.addEventListener('click', function() {
           const aiKey = this.dataset.ai;
@@ -431,11 +472,10 @@
     }
 
     // ================================================================
-    // 4. NAVEGAÇÃO (sem recarregar)
+    // 4. NAVEGAÇÃO
     // ================================================================
     function navigateTo(aiKey) {
       if (!AI_TOOLS[aiKey]) return;
-      // Atualiza a URL sem recarregar
       const url = new URL(window.location);
       url.searchParams.set('ai', aiKey);
       window.history.pushState({ ai: aiKey }, '', url);
@@ -450,7 +490,7 @@
     }
 
     // ================================================================
-    // 5. ROTEAMENTO INICIAL E POPSTATE
+    // 5. ROTEAMENTO INICIAL
     // ================================================================
     function handleRoute() {
       const params = new URLSearchParams(window.location.search);
@@ -462,15 +502,13 @@
       }
     }
 
-    // Escuta mudanças no histórico (botão voltar/avançar)
     window.addEventListener('popstate', function(event) {
       handleRoute();
     });
 
-    // Inicializa
     handleRoute();
 
-    // Expõe funções globalmente (para uso em console, se necessário)
+    // Expor funções globalmente
     window.goHome = goHome;
     window.navigateTo = navigateTo;
   </script>
