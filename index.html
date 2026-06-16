@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus - Ecossistema de IAs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: radial-gradient(circle at center, #1a1a2e 0%, #0f0f23 100%);
+      color: #e0e0e0;
+      font-family: 'Rajdhani', sans-serif;
+      min-height: 100vh;
+      padding: 1.5rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    h1, h2, h3, .ai-title, .main-header, .stat-number {
+      font-family: 'Orbitron', sans-serif !important;
+      letter-spacing: 1px;
+    }
+    p, div, span, a, .link-desc {
+      font-family: 'Rajdhani', sans-serif !important;
+    }
+
+    /* Partículas */
+    .particles-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      width: 2px; height: 2px;
+      background: #00d4ff;
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: float 15s infinite linear;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+      50% { opacity: 0.5; }
+      100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
+    }
+
+    /* Header */
+    .main-header {
+      text-align: center;
+      padding: 2rem 0 0.5rem;
+      background: linear-gradient(90deg, #00d4ff, #00ff88, #00d4ff);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 5s linear infinite;
+      font-weight: 900;
+      font-size: 4rem;
+      text-shadow: 0 0 30px rgba(0,255,136,0.2);
+      position: relative;
+      z-index: 1;
+    }
+    @keyframes shine { to { background-position: 200% center; } }
+    .subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #64748b;
+      letter-spacing: 3px;
+      margin-bottom: 2.5rem;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Stats */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+    .stat-item { text-align: center; }
+    .stat-number { font-size: 1.8rem; color: #00ff88; font-weight: 700; }
+    .stat-label { color: #666; font-size: 0.9rem; text-transform: uppercase; }
+    .stat-number.blue { color: #00d4ff; }
+    .stat-number.white { color: #fff; }
+
+    /* Grid de cards */
+    .ecosystem-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .ai-card {
+      background: rgba(30, 30, 50, 0.4);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 1.5rem;
+      height: 100%;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .ai-card:hover {
+      transform: translateY(-5px);
+      background: rgba(40, 40, 70, 0.6);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(0,255,136,0.1);
+      border-color: rgba(0,255,136,0.3);
+    }
+    .ai-icon { font-size: 2.5rem; margin-bottom: 1rem; filter: drop-shadow(0 0 8px rgba(0,212,255,0.4)); }
+    .ai-title { font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem; }
+    .ai-description { color: #94a3b8; font-size: 1rem; line-height: 1.4; flex-grow: 1; }
+    .ai-status-wrapper { margin-top: 1rem; display: flex; align-items: center; justify-content: space-between; }
+    .status-pill {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; color: #00ff88;
+      background: rgba(0,255,136,0.05);
+      padding: 4px 10px; border-radius: 12px;
+      border: 1px solid rgba(0,255,136,0.1);
+    }
+    .pulse-dot {
+      width: 6px; height: 6px; background: #00ff88; border-radius: 50%;
+      box-shadow: 0 0 8px #00ff88; animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+    .arrow-hint { color: #444; font-size: 0.8rem; }
+
+    /* Página de detalhes */
+    .detail-header {
+      text-align: center;
+      padding: 2rem 0;
+      animation: fadeIn 0.5s ease;
+      position: relative;
+      z-index: 1;
+    }
+    .detail-header .big-icon { font-size: 4rem; margin-bottom: 0.5rem; }
+    .detail-header h1 { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: white; margin-bottom: 0.25rem; }
+    .detail-header .category-tag { color: #00d4ff; font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; }
+
+    .links-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .link-card {
+      background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+      border-left: 3px solid #00d4ff;
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    .link-card:hover {
+      background: linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+      transform: translateX(5px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    .link-info h4 { color: #fff; margin: 0; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; }
+    .link-info p { color: #889; margin: 5px 0 0 0; font-size: 0.95rem; }
+    .visit-btn {
+      background: transparent;
+      border: 1px solid #00ff88;
+      color: #00ff88 !important;
+      padding: 8px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+    .visit-btn:hover {
+      background: #00ff88;
+      color: #000 !important;
+      box-shadow: 0 0 15px rgba(0,255,136,0.4);
+    }
+
+    .back-button-container {
+      text-align: center;
+      margin: 2rem 0 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .back-btn {
+      background: transparent;
+      border: 1px solid #555;
+      color: #aaa;
+      padding: 0.6rem 2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+    }
+    .back-btn:hover {
+      border-color: #00d4ff;
+      color: #00d4ff;
+      box-shadow: 0 0 20px rgba(0,212,255,0.1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeIn 0.5s ease forwards; }
+
+    @media (max-width: 768px) {
+      .main-header { font-size: 2.8rem; }
+      .stats-bar { gap: 2rem; }
+      .ecosystem-container { grid-template-columns: 1fr; }
+      .detail-header h1 { font-size: 2rem; }
+      .link-card { flex-direction: column; align-items: stretch; text-align: left; }
+      .visit-btn { align-self: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .main-header { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="particles-container" id="particles"></div>
+  <div id="app"></div>
+
+  <script>
+    // ================================================================
+    // 1. DADOS
+    // ================================================================
+    const AI_LINKS = {
+      text_generator: [
+        { name: "Claude 3.5 Sonnet", url: "https://claude.ai", desc: "Melhor raciocínio e escrita natural" },
+        { name: "ChatGPT-4o", url: "https://chat.openai.com", desc: "Multimodal e análise de dados" },
+        { name: "Gemini Advanced", url: "https://gemini.google.com", desc: "Ecossistema Google integrado" },
+        { name: "NotebookLM", url: "https://notebooklm.google.com", desc: "RAG instantâneo com seus documentos" }
+      ],
+      image_creator: [
+        { name: "Midjourney", url: "https://www.midjourney.com", desc: "Qualidade artística superior" },
+        { name: "Leonardo.ai", url: "https://leonardo.ai", desc: "Controle total e assets de jogos" },
+        { name: "Ideogram", url: "https://ideogram.ai", desc: "Melhor para gerar textos dentro da imagem" },
+        { name: "Recraft", url: "https://www.recraft.ai", desc: "Design vetorial e ícones" }
+      ],
+      code_assistant: [
+        { name: "Google AI Studio", url: "https://aistudio.google.com", desc: "Playground para Gemini 1.5 Pro/Flash" },
+        { name: "Cursor IDE", url: "https://cursor.sh", desc: "Editor de código nativo com IA" },
+        { name: "GitHub Copilot", url: "https://github.com/features/copilot", desc: "Autocomplete dentro do VS Code" },
+        { name: "V0.dev", url: "https://v0.dev", desc: "Geração de interface frontend (React/Tailwind)" }
+      ],
+      data_analyst: [
+        { name: "Julius AI", url: "https://julius.ai", desc: "Data Science conversacional" },
+        { name: "DeepNote", url: "https://deepnote.com", desc: "Jupyter Notebook colaborativo com IA" },
+        { name: "Gingr", url: "https://www.gingr.ai", desc: "Visualização de dados complexos" }
+      ],
+      research_search: [
+        { name: "Perplexity AI", url: "https://www.perplexity.ai", desc: "Busca em tempo real com citações" },
+        { name: "Consensus", url: "https://consensus.app", desc: "Busca em artigos científicos" },
+        { name: "Elicit", url: "https://elicit.com", desc: "Automação de revisão de literatura" }
+      ],
+      translator: [
+        { name: "DeepL", url: "https://www.deepl.com", desc: "Tradução contextual precisa" },
+        { name: "ElevenLabs Dubbing", url: "https://elevenlabs.io/dubbing", desc: "Dublagem de vídeo automática" }
+      ],
+      voice_synthesis: [
+        { name: "ElevenLabs", url: "https://elevenlabs.io", desc: "Vozes sintéticas indistinguíveis da real" },
+        { name: "Suno AI", url: "https://suno.com", desc: "Geração de músicas completas" },
+        { name: "Udio", url: "https://www.udio.com", desc: "Música de alta fidelidade" }
+      ],
+      document_processor: [
+        { name: "ChatPDF", url: "https://www.chatpdf.com", desc: "Interaja com arquivos PDF" },
+        { name: "Humata", url: "https://www.humata.ai", desc: "Análise de contratos e papéis longos" }
+      ],
+      video_editor: [
+        { name: "Runway Gen-3", url: "https://runwayml.com", desc: "O estado da arte em vídeo generativo" },
+        { name: "Luma Dream Machine", url: "https://lumalabs.ai/dream-machine", desc: "Vídeos realistas de alta qualidade" },
+        { name: "Kling AI", url: "https://klingai.com", desc: "Geração de vídeo com física realista" }
+      ]
+    };
+
+    const AI_TOOLS = {
+      text_generator: { icon: "✍️", title: "Gerador de Texto", description: "LLMs para escrita, raciocínio e copy.", status: "Online", category: "Criação" },
+      code_assistant: { icon: "💻", title: "Dev & Código", description: "IDEs, API Playgrounds e Autocomplete.", status: "Online", category: "Dev" },
+      data_analyst: { icon: "📊", title: "Data Science", description: "Análise estatística e visualização.", status: "Online", category: "Dados" },
+      image_creator: { icon: "🎨", title: "Estúdio Visual", description: "Geração de imagens e vetores.", status: "Online", category: "Visual" },
+      research_search: { icon: "🔍", title: "Pesquisa Deep", description: "Busca conectada à web e papers.", status: "Online", category: "Pesquisa" },
+      voice_synthesis: { icon: "🎧", title: "Áudio & Música", description: "Vozes neurais e composição musical.", status: "Online", category: "Áudio" },
+      video_editor: { icon: "🎬", title: "Vídeo Gen", description: "Criação de vídeo a partir de texto.", status: "Beta", category: "Visual" },
+      document_processor: { icon: "📄", title: "Docs Inteligentes", description: "RAG e análise de arquivos.", status: "Online", category: "Produtividade" },
+      translator: { icon: "🌍", title: "Tradução", description: "Adaptação cultural e linguística.", status: "Online", category: "Global" }
+    };
+
+    // ================================================================
+    // 2. PARTÍCULAS
+    // ================================================================
+    function createParticles() {
+      const container = document.getElementById('particles');
+      for (let i = 0; i < 30; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const left = (i * 3.5) % 100;
+        const delay = i * 0.4;
+        p.style.left = left + '%';
+        p.style.animationDelay = delay + 's';
+        container.appendChild(p);
+      }
+    }
+    createParticles();
+
+    // ================================================================
+    // 3. RENDERIZAÇÃO (sem recarregar a página)
+    // ================================================================
+    const app = document.getElementById('app');
+
+    function renderMainPage() {
+      let html = `
+        <h1 class="main-header">NEXUS</h1>
+        <p class="subtitle">Ecossistema Centralizado de Inteligência</p>
+        <div class="stats-bar">
+          <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Operacional</div></div>
+          <div class="stat-item"><div class="stat-number blue">20+</div><div class="stat-label">Ferramentas</div></div>
+          <div class="stat-item"><div class="stat-number white">PRO</div><div class="stat-label">Acesso</div></div>
+        </div>
+        <div class="ecosystem-container">
+      `;
+
+      for (const [key, tool] of Object.entries(AI_TOOLS)) {
+        html += `
+          <div class="ai-card" data-ai="${key}">
+            <div>
+              <div class="ai-icon">${tool.icon}</div>
+              <div class="ai-title">${tool.title}</div>
+              <div class="ai-description">${tool.description}</div>
+            </div>
+            <div class="ai-status-wrapper">
+              <div class="status-pill"><div class="pulse-dot"></div>${tool.status}</div>
+              <span class="arrow-hint">➔</span>
+            </div>
+          </div>
+        `;
+      }
+
+      html += `</div>`;
+      app.innerHTML = html;
+
+      // Adiciona evento de clique nos cards
+      document.querySelectorAll('.ai-card').forEach(card => {
+        card.addEventListener('click', function() {
+          const aiKey = this.dataset.ai;
+          if (aiKey && AI_TOOLS[aiKey]) {
+            navigateTo(aiKey);
+          }
+        });
+      });
+    }
+
+    function renderDetailPage(aiKey) {
+      const tool = AI_TOOLS[aiKey];
+      if (!tool) {
+        app.innerHTML = `<p style="text-align:center;color:#e0e0e0;padding:2rem;">Módulo não encontrado.</p>`;
+        return;
+      }
+
+      let html = `
+        <div class="detail-header fade-in">
+          <div class="big-icon">${tool.icon}</div>
+          <h1>${tool.title}</h1>
+          <p class="category-tag">/// Categoria: ${tool.category}</p>
+        </div>
+        <div class="links-wrapper">
+      `;
+
+      const links = AI_LINKS[aiKey] || [];
+      if (links.length === 0) {
+        html += `<p style="color:#94a3b8;">Nenhuma ferramenta vinculada a este módulo ainda.</p>`;
+      } else {
+        for (const link of links) {
+          html += `
+            <div class="link-card">
+              <div class="link-info">
+                <h4>${link.name}</h4>
+                <p>${link.desc}</p>
+              </div>
+              <a href="${link.url}" target="_blank" class="visit-btn">Acessar</a>
+            </div>
+          `;
+        }
+      }
+
+      html += `
+        </div>
+        <div class="back-button-container">
+          <button class="back-btn" id="backBtn">🔌 Desconectar Módulo</button>
+        </div>
+      `;
+
+      app.innerHTML = html;
+
+      document.getElementById('backBtn').addEventListener('click', function() {
+        goHome();
+      });
+    }
+
+    // ================================================================
+    // 4. NAVEGAÇÃO (sem recarregar)
+    // ================================================================
+    function navigateTo(aiKey) {
+      if (!AI_TOOLS[aiKey]) return;
+      // Atualiza a URL sem recarregar
+      const url = new URL(window.location);
+      url.searchParams.set('ai', aiKey);
+      window.history.pushState({ ai: aiKey }, '', url);
+      renderDetailPage(aiKey);
+    }
+
+    function goHome() {
+      const url = new URL(window.location);
+      url.searchParams.delete('ai');
+      window.history.pushState({}, '', url);
+      renderMainPage();
+    }
+
+    // ================================================================
+    // 5. ROTEAMENTO INICIAL E POPSTATE
+    // ================================================================
+    function handleRoute() {
+      const params = new URLSearchParams(window.location.search);
+      const aiKey = params.get('ai');
+      if (aiKey && AI_TOOLS[aiKey]) {
+        renderDetailPage(aiKey);
+      } else {
+        renderMainPage();
+      }
+    }
+
+    // Escuta mudanças no histórico (botão voltar/avançar)
+    window.addEventListener('popstate', function(event) {
+      handleRoute();
+    });
+
+    // Inicializa
+    handleRoute();
+
+    // Expõe funções globalmente (para uso em console, se necessário)
+    window.goHome = goHome;
+    window.navigateTo = navigateTo;
+  </script>
+</body>
+</html>
