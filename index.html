@@ -159,7 +159,7 @@
       <div class="auth-head"><div class="auth-brand"><span class="brand-mark">N</span><div>NEXUS <span>AI ATLAS · PRIVADO</span></div></div><span class="auth-tag">● ÁREA RESTRITA</span></div>
       <div class="auth-lock" aria-hidden="true">♙</div>
       <h1>Seu acesso ao<br>universo das IAs.</h1>
-      <p>Entre com sua conta Google. O catálogo será aberto somente se o seu e-mail estiver na lista autorizada pelo administrador.</p>
+      <p>Entre com sua conta Google. Contas autorizadas entram diretamente. Se seu e-mail ainda não tiver acesso, você verá como adquirir e solicitar a liberação.</p>
       <div class="auth-status" id="authStatus" role="status" aria-live="polite">Verificando acesso seguro...</div>
       <button class="auth-google" id="loginGoogle" type="button" hidden><svg width="21" height="21" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.6l6.7-6.7C35.7 2.5 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.3l7.8 6.1C12.2 13.7 17.6 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.28 5.48-4.82 7.18l7.73 6C44.35 38.05 46.98 31.92 46.98 24.55z"/><path fill="#FBBC05" d="M10.4 28.6A14.7 14.7 0 019.5 24c0-1.6.3-3.16.89-4.6l-7.8-6.1C.9 16.57 0 20.2 0 24s.9 7.43 2.6 10.7l7.8-6.1z"/><path fill="#34A853" d="M24 48c6.3 0 11.6-2.08 15.5-5.66l-7.73-6C29.6 37.78 27 38.5 24 38.5c-6.4 0-11.85-4.29-13.6-10.1l-7.8 6.1C6.5 42.6 14.6 48 24 48z"/></svg><span id="loginLabel">Continuar com Google</span></button>
       <p class="auth-note">▣ O acesso depende de autorização individual e pode ser revogado pelo administrador.</p>
@@ -378,9 +378,13 @@
             if(generation!==session)return;
             if(!snap.exists()||snap.data().enabled!==true){
               lock();
-              setStatus('Acesso não autorizado para '+email+'.\nPeça ao administrador para liberar esse endereço de e-mail no painel do Firebase.','error',true,'Entrar com outra conta');
+              // Somente uma recusa explícita de autorização direciona para a oferta.
+              // Falhas de rede, permissões e leitura do catálogo NÃO acionam cobrança.
+              try { sessionStorage.setItem('nexus_email_pendente', email); } catch (_) {}
+              window.location.replace(new URL('./assinar.html', window.location.href).href);
               return;
             }
+            try { sessionStorage.removeItem('nexus_email_pendente'); } catch (_) {}
             setStatus('E-mail autorizado. Carregando catálogo privado...','ok');
             try{
               const catalog=await getDoc(doc(db,'content','catalog'));
