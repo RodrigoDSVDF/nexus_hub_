@@ -40,19 +40,19 @@
     <div class="offerhead"><strong id="plano">Acesso NEXUS AI Atlas</strong><span class="tag">PAGAMENTO EXTERNO</span></div>
     <div class="price" id="valor" hidden></div>
     <p class="duration" id="duracao">Confira o valor e as condições de contratação antes de pagar.</p>
-    <p class="errornote" id="valor-livre" hidden>Importante: este link personalizado do Mercado Pago pode permitir que você digite o valor. Confirme previamente com o vendedor o preço correto do acesso. A compra não libera o NEXUS automaticamente.</p>
+    <p class="errornote" id="valor-livre" hidden><strong>Atenção ao valor:</strong> o link personalizado do Mercado Pago pode pedir que você informe o valor. Nesse caso, digite <strong>R$ 19,90</strong>, o preço anunciado pelo NEXUS. O site não consegue fixar o valor diretamente no Mercado Pago. A liberação não é automática.</p>
     <div class="user"><small>Seu e-mail de acesso — informe este mesmo Gmail ao vendedor</small><div class="emailrow"><span id="email" class="email">Entre no NEXUS com Google para identificar seu e-mail</span><button id="copiar" class="copy" type="button" hidden>Copiar</button></div></div>
     <a class="primary" id="pagar" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true">Ir para pagamento seguro ↗</a>
     <p class="errornote" id="sem-link" hidden>O pagamento ainda não foi configurado pelo administrador. Volte mais tarde ou solicite atendimento.</p>
     <div class="steps"><h3>Como receber seu acesso</h3><ol><li>Faça o pagamento pelo link oficial.</li><li>Informe ao atendimento <strong>o Gmail exibido acima</strong> e os dados necessários para identificar sua compra.</li><li>Após confirmar a transação no provedor de pagamento, o administrador libera seu Gmail.</li><li>Volte ao NEXUS e entre com a mesma conta Google.</li></ol></div>
     <div class="support"><a class="secondary" id="whatsapp" target="_blank" rel="noopener noreferrer" hidden>Solicitar liberação pelo WhatsApp ↗</a><a class="secondary" id="contato" hidden>Solicitar liberação por e-mail ↗</a><a class="secondary" href="./">Já fui liberado — verificar acesso ↗</a></div>
-    <p class="notice">O comprovante não libera o acesso automaticamente. O administrador deve confirmar o recebimento no provedor de pagamento.</p>
+    <p class="notice">O acesso custa R$ 19,90. Confirme o valor no checkout antes de pagar. O prazo/condições de acesso devem ser informados pelo vendedor. O comprovante não libera o acesso automaticamente; a aprovação é conferida no Mercado Pago.</p>
     <div class="status" id="aviso" role="status" aria-live="polite"></div>
   </section>
 </main>
 <footer class="foot"><div class="wrap footinner"><span>NEXUS AI ATLAS · Acesso individual ao diretório</span><span>Processamento de pagamento realizado fora do NEXUS.</span></div></footer>
 <script type="module">
-import {pagamentoConfig as cfg} from './pagamento-config.js';
+import {pagamentoConfig as cfg} from './pagamento-config.js?v=1990';
 const $=id=>document.getElementById(id);
 let email='';
 try { email=sessionStorage.getItem('nexus_email_pendente')||''; } catch (_) {}

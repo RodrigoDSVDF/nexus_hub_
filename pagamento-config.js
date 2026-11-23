@@ -19,8 +19,9 @@ export const pagamentoConfig = {
   // Alternativa ao WhatsApp para o comprador informar o Gmail utilizado no login.
   emailAtendimento: "",
 
-  // Preencha somente após definir sua oferta. Evita prometer valor/plano inexistente.
+  // Oferta NEXUS definida pelo proprietário: R$ 19,90.
+  // Este preço exibido no site NÃO altera o valor cobrado no Mercado Pago.
   nomePlano: "Acesso NEXUS AI Atlas",
-  precoExibicao: "",
-  duracaoExibicao: ""
+  precoExibicao: "R$ 19,90",
+  duracaoExibicao: "Valor do acesso ao catálogo · liberação manual após confirmação"
 };
