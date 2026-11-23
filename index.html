@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b10">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="NEXUS AI Atlas: diretório de ferramentas de inteligência artificial para criação, código, pesquisa, dados, vídeo, áudio e negócios. Atualizado em novembro de 2026.">
+  <title>NEXUS — AI Atlas | Seu universo de inteligências artificiais</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:dark;--bg:#080b10;--surface:#10151d;--surface2:#141b25;--line:#27303d;--muted:#91a0b3;--text:#f3f6fb;--mint:#8af6c3;--cyan:#89d7fc;--violet:#baaeff;--glow:rgba(111,239,182,.12);--max:1250px}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:140px}
+    body{margin:0;font-family:'DM Sans',system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);min-width:320px;line-height:1.5;overflow-x:hidden}
+    body::before{content:"";position:absolute;z-index:-1;inset:0 0 auto 0;height:1000px;pointer-events:none;background:radial-gradient(ellipse 650px 420px at 82% 12%,rgba(47,166,122,.12),transparent 70%),radial-gradient(ellipse 620px 500px at 10% 8%,rgba(69,111,194,.10),transparent 65%)}
+    a{text-decoration:none;color:inherit}button,input,select{font:inherit}button{cursor:pointer}
+    button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+    ::selection{background:rgba(138,246,195,.3)}
+    .container{max-width:var(--max);padding:0 28px;margin:auto}
+    .nav-wrap{height:78px;position:sticky;top:0;z-index:30;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(8,11,16,.87);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+    .nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:inline-flex;align-items:center;gap:11px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;letter-spacing:-.7px}
+    .brand-mark{display:grid;place-items:center;width:37px;height:37px;flex:none;border-radius:12px;background:linear-gradient(135deg,#9bffe0,#66cdff);color:#09131a;font-weight:700;font-size:23px;box-shadow:0 2px 28px rgba(139,245,196,.19)}
+    .brand small{font:600 10px 'DM Sans',sans-serif;letter-spacing:2.3px;color:var(--muted);margin-left:3px;vertical-align:3px}
+    .nav-links{display:flex;align-items:center;gap:26px;color:#b3bfcc;font-size:13px;font-weight:700}
+    .nav-links a:hover{color:white}
+    .nav-actions{display:flex;gap:10px;align-items:center}
+    .nav-badge{font:700 11px 'DM Sans',sans-serif;border:1px solid rgba(138,246,195,.22);color:var(--mint);background:rgba(138,246,195,.08);padding:8px 11px;border-radius:30px;white-space:nowrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 19px;border-radius:12px;border:1px solid var(--line);font-weight:700;font-size:13px;transition:background .2s,border-color .2s,transform .2s;white-space:nowrap}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--mint);color:#071810;border-color:var(--mint);box-shadow:0 10px 32px rgba(111,239,182,.12)}
+    .btn-primary:hover{background:#b5ffdc}
+    .btn-ghost{background:rgba(255,255,255,.035);color:var(--text)}
+    .btn-ghost:hover{border-color:#586573;background:rgba(255,255,255,.07)}
+    .hero{padding:76px 0 62px;display:grid;grid-template-columns:1.07fr .93fr;gap:54px;align-items:center}
+    .eyebrow{display:inline-flex;gap:9px;align-items:center;border:1px solid rgba(129,237,185,.19);background:rgba(129,237,185,.055);color:#aaf6d0;font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;border-radius:40px;padding:8px 12px}
+    .eyebrow i,.live-dot{width:7px;height:7px;display:inline-block;border-radius:50%;background:#99f5be;box-shadow:0 0 10px rgba(138,246,195,.6)}
+    h1,h2,h3,h4,p{margin-top:0}
+    .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(43px,5.15vw,72px);letter-spacing:-3.7px;line-height:1.035;font-weight:700;margin:25px 0 24px}
+    .hero h1 .gradient{background:linear-gradient(93deg,#a5fbd1 3%,#86d6ff 67%,#beb1ff);color:transparent;background-clip:text;-webkit-background-clip:text}
+    .hero-p{font-size:16px;color:#aab5c3;line-height:1.8;max-width:530px;margin-bottom:28px}
+    .hero-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .hero-metrics{display:flex;gap:30px;flex-wrap:wrap;padding-top:33px;margin-top:38px;border-top:1px solid rgba(255,255,255,.095)}
+    .metric strong{display:block;font:700 27px 'Space Grotesk',sans-serif;letter-spacing:-1px}
+    .metric span{font-size:11px;color:#8899ab;letter-spacing:.5px}
+    .hero-stage{min-height:478px;position:relative;display:flex;align-items:center;justify-content:center}
+    .hero-stage::before{content:"";position:absolute;border-radius:50%;width:420px;height:420px;background:radial-gradient(circle,rgba(77,184,152,.22),rgba(78,109,179,.08) 40%,transparent 66%);filter:blur(14px)}
+    .orbit{position:absolute;border:1px solid rgba(157,216,207,.09);border-radius:50%;width:440px;height:440px;transform:rotate(-22deg)}
+    .orbit.orbit2{width:340px;height:340px;border-style:dashed;border-color:rgba(161,207,244,.15)}
+    .stage-card{position:relative;z-index:2;width:min(100%,460px);padding:22px;border:1px solid #34434d;border-radius:22px;background:linear-gradient(150deg,rgba(30,41,51,.95),rgba(14,20,29,.98));box-shadow:0 25px 90px rgba(0,0,0,.48),0 0 80px rgba(130,248,192,.07)}
+    .stage-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-bottom:19px;border-bottom:1px solid rgba(255,255,255,.09)}
+    .stage-dots{display:flex;gap:5px}.stage-dots span{width:7px;height:7px;border-radius:50%;background:#485664}.stage-dots span:first-child{background:#8cf3c2}.stage-dots span:nth-child(2){background:#80cefa}
+    .stage-sub{font-size:11px;color:#8c9baf;font-weight:700;letter-spacing:1px}
+    .stage-heading{display:flex;justify-content:space-between;align-items:center;margin:22px 0 15px}
+    .stage-heading h3{font:600 18px 'Space Grotesk',sans-serif;margin:0}
+    .stage-heading .hint{font-size:11px;color:var(--mint)}
+    .stage-tool{display:flex;align-items:center;gap:12px;padding:12px;margin:9px 0;border:1px solid rgba(255,255,255,.065);background:rgba(255,255,255,.032);border-radius:13px}
+    .stage-ico{display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:12px;font-size:21px;background:rgba(136,210,209,.12)}
+    .stage-text{flex:1;min-width:0}.stage-text b{display:block;font-size:13px}.stage-text span{font-size:10px;color:#8c9fb0}
+    .stage-check{font-weight:800;color:var(--mint);font-size:15px}
+    .stage-bottom{display:flex;align-items:center;justify-content:space-between;padding:18px 2px 2px;color:#8598ac;font-size:11px}
+    .stage-bottom strong{color:#bafde0;font-size:11px}
+    .section{padding:26px 0 0}
+    .section-top{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:24px}
+    .kicker{display:block;text-transform:uppercase;font-weight:800;letter-spacing:1.8px;color:var(--mint);font-size:11px;margin-bottom:11px}
+    h2{font:700 clamp(26px,3vw,38px) 'Space Grotesk',sans-serif;letter-spacing:-1.1px;line-height:1.2;margin-bottom:9px}
+    .section-desc{color:var(--muted);font-size:14px;margin:0;max-width:650px;line-height:1.7}
+    .section-note{font-size:11px;color:#8797a8;text-align:right}
+    .usecases{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:52px}
+    .usecase{position:relative;overflow:hidden;text-align:left;display:block;padding:22px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(140deg,#161e29,#10151d);transition:transform .18s,border-color .18s}
+    .usecase:hover{transform:translateY(-4px);border-color:#5a7382}
+    .usecase .u-icon{display:grid;place-items:center;border-radius:13px;width:44px;height:44px;font-size:23px;background:rgba(147,244,203,.09);margin-bottom:20px}
+    .usecase b{display:block;font:700 17px 'Space Grotesk',sans-serif;margin-bottom:8px}
+    .usecase p{margin:0;font-size:12px;line-height:1.7;color:var(--muted);max-width:300px}
+    .usecase .u-arrow{position:absolute;right:20px;top:22px;color:#a8f3d0;font-size:19px}
+    .catalog{padding-bottom:80px}
+    .filter-shell{position:sticky;top:77px;z-index:25;background:rgba(8,11,16,.94);backdrop-filter:blur(15px);padding:15px 0 12px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:25px}
+    .filter-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .search-box{flex:1;min-width:240px;position:relative;display:flex;align-items:center}
+    .search-icon{position:absolute;left:15px;color:#8ea1b1;font-size:18px;pointer-events:none}
+    .search-input{width:100%;height:47px;padding:0 92px 0 43px;color:#f4f7f9;border:1px solid #2c3743;border-radius:12px;background:#131b25;outline:none;font-size:13px}
+    .search-input:focus{border-color:#7ee6b2;box-shadow:0 0 0 3px rgba(128,231,182,.1)}
+    .search-input::placeholder{color:#8090a0}.kbd{position:absolute;right:12px;border:1px solid #334251;border-radius:6px;padding:3px 6px;font:11px 'DM Sans',sans-serif;color:#8794a2}
+    .filter-btn,.sort-select{height:47px;border-radius:12px;border:1px solid #2c3743;background:#131b25;padding:0 14px;color:#c2d0dd;font-size:12px;font-weight:700;display:inline-flex;align-items:center;gap:9px}
+    .filter-btn.is-on{background:rgba(137,247,195,.09);border-color:rgba(137,247,195,.45);color:var(--mint)}
+    .sort-select{padding-right:11px;max-width:175px}
+    .chip-row{display:flex;gap:8px;margin-top:12px;overflow-x:auto;scrollbar-width:thin;padding:0 0 3px}
+    .chip{display:inline-flex;white-space:nowrap;align-items:center;gap:7px;border:1px solid #263340;border-radius:999px;padding:7px 12px;background:rgba(255,255,255,.023);color:#adbac8;font-size:12px;font-weight:700;transition:.2s}
+    .chip:hover{border-color:#748594;color:white}.chip.active{border-color:#8aeabe;color:#06140e;background:var(--mint)}
+    .chip em{font-style:normal;font-size:10px;opacity:.75}
+    .result-row{display:flex;justify-content:space-between;align-items:center;gap:10px;color:#98a6b7;font-size:12px;margin:17px 0 19px}
+    .result-row strong{color:#e5edf4}.result-row button{border:0;background:transparent;color:var(--mint);font-weight:700}
+    .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+    .tool-card{display:flex;flex-direction:column;min-height:245px;border:1px solid #26313d;border-radius:18px;padding:20px;background:linear-gradient(158deg,#161d27 0%,#111720 85%);position:relative;overflow:hidden;transition:border-color .2s,transform .2s,box-shadow .2s}
+    .tool-card::before{content:"";position:absolute;inset:0 0 auto 0;height:1px;background:linear-gradient(90deg,transparent,var(--card-color,rgba(138,246,195,.5)),transparent);opacity:.5}
+    .tool-card:hover{border-color:#566777;transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.25)}
+    .tool-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+    .tool-logo{display:grid;place-items:center;flex:none;width:49px;height:49px;border-radius:14px;font-size:25px;background:color-mix(in srgb,var(--card-color) 13%,#1a222c);border:1px solid color-mix(in srgb,var(--card-color) 27%,transparent)}
+    .star{display:grid;place-items:center;font-size:19px;line-height:1;border:1px solid #3b4652;border-radius:10px;color:#8291a0;background:transparent;width:34px;height:34px;flex:none}
+    .star:hover,.star.active{color:#ffda93;border-color:rgba(255,218,147,.42);background:rgba(255,218,147,.09)}
+    .tool-title{font:700 18px 'Space Grotesk',sans-serif;letter-spacing:-.35px;line-height:1.2;margin:16px 0 5px}
+    .tool-version{font-size:11px;color:#9cc9e2;font-weight:800;min-height:17px;margin:0 0 11px}
+    .tool-desc{font-size:12px;color:#a5b2c0;line-height:1.65;margin:0 0 18px;flex:1}
+    .tool-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+    .tag{font-size:10px;padding:5px 8px;background:#222d38;border:1px solid #2d3a47;border-radius:6px;color:#a9beca;white-space:nowrap}
+    .tag.featured{background:rgba(137,247,195,.075);border-color:rgba(137,247,195,.2);color:#9bf3c5}
+    .card-actions{display:flex;align-items:center;gap:8px;border-top:1px solid rgba(255,255,255,.07);padding-top:15px;margin-top:auto}
+    .go-link{display:inline-flex;gap:8px;align-items:center;justify-content:center;flex:1;padding:9px 11px;border-radius:9px;color:#05190f;background:var(--mint);font-weight:800;font-size:12px;transition:.2s}
+    .go-link:hover{background:#c8ffdf}.source-link{color:#99aebe;font-size:11px;font-weight:700;padding:8px 5px;white-space:nowrap}.source-link:hover{color:#e4f7ff}
+    .empty{display:none;text-align:center;padding:65px 24px;border:1px dashed #445464;border-radius:18px;color:#a5b2c0;background:rgba(255,255,255,.022)}
+    .empty h3{font:700 23px 'Space Grotesk',sans-serif;color:#fff;margin:12px 0}.empty p{font-size:13px}
+    .bottom-panel{padding:26px 30px;border-radius:22px;border:1px solid #365145;background:radial-gradient(circle at 95% 15%,rgba(110,219,172,.16),transparent 46%),linear-gradient(110deg,#182820,#0d151b);display:flex;align-items:center;justify-content:space-between;gap:25px;margin:0 0 62px}
+    .bottom-panel h2{font-size:26px}.bottom-panel p{color:#9eafa6;font-size:13px;line-height:1.7;margin:0;max-width:630px}
+    .sources{padding:0 0 65px}.sources h2{font-size:21px}.sources p{color:#92a3b5;font-size:12px;line-height:1.8;max-width:830px}
+    .sources-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}.sources-list a{font-size:11px;font-weight:700;color:#b7cee0;border:1px solid #2d3945;background:#131c25;padding:8px 11px;border-radius:8px}.sources-list a:hover{border-color:#77c8aa;color:#dbffe8}
+    footer{border-top:1px solid #26313c;padding:27px 0 35px;background:#0c1118;color:#8293a5}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11px}.footer-inner strong{color:#ecf6fb;font-family:'Space Grotesk',sans-serif;letter-spacing:1px}
+    .toast{position:fixed;left:50%;bottom:27px;transform:translate(-50%,100px);opacity:0;z-index:90;background:#243b35;border:1px solid #64b68b;border-radius:11px;padding:11px 16px;color:#cbffe0;font-size:12px;pointer-events:none;transition:.25s;box-shadow:0 15px 35px rgba(0,0,0,.3)}
+    .toast.visible{transform:translate(-50%,0);opacity:1}
+    @media(max-width:1100px){.hero{grid-template-columns:1fr .83fr;gap:25px}.hero h1{font-size:54px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-stage{min-height:435px}.orbit{width:340px;height:340px}.orbit.orbit2{width:250px;height:250px}}
+    @media(max-width:780px){.nav-links{display:none}.hero{padding-top:50px;grid-template-columns:1fr;gap:10px}.hero h1{font-size:clamp(42px,8vw,64px)}.hero-stage{min-height:410px}.stage-card{max-width:470px}.usecases{grid-template-columns:1fr}.usecase{min-height:145px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.section-top{align-items:start}.section-note{display:none}.filter-shell{top:77px}.bottom-panel{display:block}.bottom-panel .btn{margin-top:18px}}
+    @media(max-width:560px){.container{padding:0 17px}.nav-wrap{height:67px}.filter-shell{top:66px}.nav-badge{display:none}.brand{font-size:19px}.brand small{font-size:9px}.nav-actions .btn{padding:10px 11px;font-size:11px}.hero{padding:40px 0 27px}.hero h1{letter-spacing:-2px;margin:20px 0}.hero-p{font-size:14px}.hero-metrics{gap:22px;padding-top:25px;margin-top:30px}.metric strong{font-size:23px}.hero-stage{min-height:350px}.hero-stage::before{width:90vw;height:auto;aspect-ratio:1}.stage-card{padding:16px}.orbit{width:65vw;height:auto;aspect-ratio:1}.orbit.orbit2{width:47vw;height:auto;aspect-ratio:1}.usecases{gap:10px;margin-bottom:40px}.section-top{margin-bottom:19px}.cards{grid-template-columns:1fr}.tool-card{min-height:215px}.filter-row{gap:8px}.search-box{flex-basis:100%}.filter-btn,.sort-select{height:41px}.search-input{height:44px}.bottom-panel{padding:21px}.bottom-panel h2{font-size:23px}.footer-inner{line-height:1.6}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+    [hidden]{display:none!important}
+    /* Controle de acesso: sem dados privados no HTML público */
+    body:not(.is-authorized) .nav-wrap,body:not(.is-authorized) main,body:not(.is-authorized) footer{display:none!important}
+    .security-gate{min-height:100dvh;display:grid;place-items:center;position:relative;padding:32px 18px;isolation:isolate}
+    body.is-authorized .security-gate{display:none}
+    .security-gate::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 13%,rgba(91,239,175,.16),transparent 48%),radial-gradient(ellipse at 88% 75%,rgba(68,113,198,.12),transparent 47%);z-index:-1}
+    .auth-panel{width:min(100%,466px);border:1px solid #324342;border-radius:26px;background:linear-gradient(150deg,#17222a,#0e141d 72%);box-shadow:0 28px 90px rgba(0,0,0,.4);padding:36px}
+    .auth-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:39px;gap:12px}
+    .auth-brand{display:flex;align-items:center;gap:12px;font:700 20px 'Space Grotesk',sans-serif}
+    .auth-brand span:last-child{font-size:10px;letter-spacing:2px;display:block;color:#8fa5b7}
+    .auth-tag{font-size:10px;letter-spacing:.7px;font-weight:700;color:#b4eccd;background:#20352e;border:1px solid #315c47;padding:8px 10px;border-radius:30px;white-space:nowrap}
+    .auth-lock{display:grid;place-items:center;width:56px;height:56px;font-size:27px;background:#1e3b36;border:1px solid #376756;border-radius:17px;color:#bcffe0;margin-bottom:20px}
+    .auth-panel h1{font:700 34px 'Space Grotesk',sans-serif;letter-spacing:-1.7px;line-height:1.15;margin-bottom:14px}
+    .auth-panel p{font-size:14px;color:#a4b3c0;line-height:1.75;margin-bottom:23px}
+    .auth-panel .auth-note{font-size:12px;color:#86a59c;margin:22px 0 0;display:flex;align-items:flex-start;gap:7px}
+    .auth-google{width:100%;min-height:52px;border:1px solid #e4e9ea;border-radius:13px;background:#f5faf9;color:#20282b;display:flex;align-items:center;justify-content:center;gap:12px;font-weight:800;font-size:14px}
+    .auth-google:hover{background:white;box-shadow:0 8px 27px rgba(255,255,255,.11)}
+    .auth-google:disabled{opacity:.5;cursor:wait}
+    .auth-status{margin:0 0 16px;border:1px solid #344452;border-radius:12px;padding:13px 14px;background:#141d27;color:#c6d7e3;font-size:12px;line-height:1.7;white-space:pre-line}
+    .auth-status.error{border-color:#764842;color:#ffc0b5;background:#322020}
+    .auth-status.ok{border-color:#3c6954;color:#baffd5}
+    .session-bar{display:flex;align-items:center;gap:9px;background:rgba(120,238,177,.08);padding:6px 8px 6px 12px;border:1px solid #315544;border-radius:11px;max-width:290px}
+    .session-email{font-size:11px;color:#b9efd3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:170px}
+    .session-exit{border:0;background:transparent;color:#fff;font-weight:700;font-size:11px;padding:4px;flex:none}
+    @media(max-width:560px){.auth-panel{padding:26px}.auth-panel h1{font-size:30px}.session-email{max-width:105px}}
+
+  </style>
+</head>
+<body>
+  <section class="security-gate" id="securityGate" aria-label="Controle de acesso ao NEXUS">
+    <div class="auth-panel">
+      <div class="auth-head"><div class="auth-brand"><span class="brand-mark">N</span><div>NEXUS <span>AI ATLAS · PRIVADO</span></div></div><span class="auth-tag">● ÁREA RESTRITA</span></div>
+      <div class="auth-lock" aria-hidden="true">♙</div>
+      <h1>Seu acesso ao<br>universo das IAs.</h1>
+      <p>Entre com sua conta Google. O catálogo será aberto somente se o seu e-mail estiver na lista autorizada pelo administrador.</p>
+      <div class="auth-status" id="authStatus" role="status" aria-live="polite">Verificando acesso seguro...</div>
+      <button class="auth-google" id="loginGoogle" type="button" hidden><svg width="21" height="21" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.6l6.7-6.7C35.7 2.5 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.3l7.8 6.1C12.2 13.7 17.6 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.28 5.48-4.82 7.18l7.73 6C44.35 38.05 46.98 31.92 46.98 24.55z"/><path fill="#FBBC05" d="M10.4 28.6A14.7 14.7 0 019.5 24c0-1.6.3-3.16.89-4.6l-7.8-6.1C.9 16.57 0 20.2 0 24s.9 7.43 2.6 10.7l7.8-6.1z"/><path fill="#34A853" d="M24 48c6.3 0 11.6-2.08 15.5-5.66l-7.73-6C29.6 37.78 27 38.5 24 38.5c-6.4 0-11.85-4.29-13.6-10.1l-7.8 6.1C6.5 42.6 14.6 48 24 48z"/></svg><span id="loginLabel">Continuar com Google</span></button>
+      <p class="auth-note">▣ O acesso depende de autorização individual e pode ser revogado pelo administrador.</p>
+    </div>
+  </section>
+  <header class="nav-wrap">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="NEXUS, voltar ao início"><span class="brand-mark">N</span><span>NEXUS <small>AI ATLAS</small></span></a>
+      <nav class="nav-links" aria-label="Menu principal"><a href="#inicio">Início</a><a href="#uso">Por onde começar</a><a href="#catalogo">Explorar IAs</a><a href="#fontes">Fontes</a></nav>
+      <div class="nav-actions"><span class="nav-badge">● ÁREA AUTORIZADA</span><div class="session-bar"><span id="sessionEmail" class="session-email"></span><button id="exitGoogle" class="session-exit" type="button">Sair ↗</button></div></div>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <div class="container">
+      <section class="hero" aria-label="Apresentação da plataforma">
+        <div>
+          <div class="eyebrow"><i></i> Seu diretório inteligente de IA</div>
+          <h1>Um universo de IAs.<br><span class="gradient">Um lugar para explorar.</span></h1>
+          <p class="hero-p">Encontre as ferramentas certas para criar, programar, pesquisar, estudar e produzir mais. Um catálogo curado, com versões, descrições e links diretos para as plataformas.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#catalogo">Explorar ferramentas <span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href="#uso">Como escolher <span aria-hidden="true">↓</span></a></div>
+          <div class="hero-metrics" aria-label="Estatísticas do catálogo"><div class="metric"><strong id="totalTools">—</strong><span>FERRAMENTAS</span></div><div class="metric"><strong id="totalCats">—</strong><span>CATEGORIAS</span></div><div class="metric"><strong id="totalVersions">—</strong><span>VERSÕES IDENTIFICADAS</span></div></div>
+        </div>
+        <div class="hero-stage" aria-hidden="true"><div class="orbit"></div><div class="orbit orbit2"></div>
+          <div class="stage-card"><div class="stage-top"><div class="stage-dots"><span></span><span></span><span></span></div><div class="stage-sub">NEXUS / EXPLORADOR DE IAs</div><span style="color:#a3b4c1;font-size:13px">⌘</span></div>
+            <div class="stage-heading"><h3>Em destaque</h3><span class="hint">EDIÇÃO ATUALIZADA</span></div>
+            <div class="stage-tool"><span class="stage-ico">✦</span><div class="stage-text"><b>GPT‑6.2 Astra / Sol</b><span>OpenAI · trabalho avançado e desenvolvimento</span></div><span class="stage-check">↗</span></div>
+            <div class="stage-tool"><span class="stage-ico">◈</span><div class="stage-text"><b>Claude 5.5</b><span>Anthropic · raciocínio e código</span></div><span class="stage-check">↗</span></div>
+            <div class="stage-tool"><span class="stage-ico">✳</span><div class="stage-text"><b>Gemini 4 Neon</b><span>Google · agentes e tarefas complexas</span></div><span class="stage-check">↗</span></div>
+            <div class="stage-tool"><span class="stage-ico">⬡</span><div class="stage-text"><b>GLM‑5.3</b><span>Z.ai · engenharia de software</span></div><span class="stage-check">↗</span></div>
+            <div class="stage-bottom"><span>Atualização editorial: 22 de novembro de 2026</span><strong>FEITO PARA EXPLORAR</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="uso" aria-labelledby="use-h">
+        <div class="section-top"><div><span class="kicker">A ferramenta certa para cada objetivo</span><h2 id="use-h">O que você quer fazer hoje?</h2><p class="section-desc">Atalhos para começar. Clique em uma atividade e veja as plataformas relacionadas.</p></div></div>
+        <div class="usecases">
+          <a class="usecase" href="#catalogo" data-jump="codigo"><span class="u-arrow">↗</span><span class="u-icon">⌨️</span><b>Criar sites e aplicativos</b><p>Assistentes de programação, editores com IA e construtores de interfaces.</p></a>
+          <a class="usecase" href="#catalogo" data-jump="criacao"><span class="u-arrow">↗</span><span class="u-icon">✦</span><b>Criar conteúdo visual</b><p>Imagens, artes, marcas, vídeos e materiais de marketing.</p></a>
+          <a class="usecase" href="#catalogo" data-jump="pesquisa"><span class="u-arrow">↗</span><span class="u-icon">🔎</span><b>Pesquisar e aprender</b><p>Pesquisa com fontes, literatura científica e leitura de documentos.</p></a>
+        </div>
+      </section>
+    </div>
+
+    <section class="catalog" id="catalogo" aria-labelledby="catalog-h">
+      <div class="container section-top"><div><span class="kicker">Diretório Nexus</span><h2 id="catalog-h">Explore o ecossistema</h2><p class="section-desc">Pesquise pelo nome, atividade, fabricante ou modelo. Use filtros para encontrar rapidamente o que precisa.</p></div><span class="section-note">Os nomes de modelos e a disponibilidade podem variar por plano e região.</span></div>
+      <div class="filter-shell"><div class="container">
+        <div class="filter-row">
+          <div class="search-box"><span class="search-icon">⌕</span><input id="search" class="search-input" type="search" aria-label="Buscar ferramentas de IA" placeholder="Buscar ferramenta, modelo ou tarefa..." autocomplete="off"><span class="kbd">Ctrl K</span></div>
+          <button class="filter-btn" id="favFilter" type="button" aria-pressed="false">☆ <span>Favoritos</span> <span id="favCount">0</span></button>
+          <select class="sort-select" id="sort" aria-label="Ordenar ferramentas"><option value="featured">Em destaque</option><option value="az">Nome: A–Z</option><option value="za">Nome: Z–A</option></select>
+        </div>
+        <div class="chip-row" role="group" aria-label="Filtrar por categoria" id="chips"></div>
+      </div></div>
+      <div class="container"><div class="result-row"><span id="results" aria-live="polite"></span><button type="button" id="clearFilters">Limpar filtros</button></div><div class="cards" id="cards"></div><div class="empty" id="empty"><div style="font-size:38px">⌕</div><h3>Nenhum resultado encontrado</h3><p>Tente outro termo, escolha outra categoria ou desative o filtro de favoritos.</p><button type="button" class="btn btn-primary" id="emptyClear">Ver todas as ferramentas</button></div></div>
+    </section>
+
+    <div class="container"><section class="bottom-panel" aria-label="Nota sobre o diretório"><div><span class="kicker">Curadoria, não publicidade</span><h2>Menos tempo procurando. Mais tempo criando.</h2><p>Este diretório oferece links para sites externos e não concede assinaturas ou acesso pago. A escolha ideal depende da tarefa, do orçamento e da disponibilidade de cada serviço.</p></div><a class="btn btn-primary" href="#catalogo">Encontrar minha IA ↗</a></section></div>
+
+    <section class="sources container" id="fontes"><span class="kicker">Transparência</span><h2>Sobre as versões e as fontes</h2><p>Principais versões revisadas em 22/11/2026 com base em páginas oficiais de desenvolvedores. As ferramentas sem versão mostrada são listadas pelo nome da plataforma. Este catálogo é estático: não detecta lançamentos nem verifica disponibilidade em tempo real. O botão “Fonte” em cada cartão com modelo identificado leva à documentação ou ao anúncio correspondente.</p><div class="sources-list"><a href="https://help.openai.com/en/articles/9624314-model-release-notes" target="_blank" rel="noopener noreferrer">OpenAI · Modelos ↗</a><a href="https://www.anthropic.com/news" target="_blank" rel="noopener noreferrer">Anthropic · Notícias ↗</a><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/" target="_blank" rel="noopener noreferrer">Google · Gemini ↗</a><a href="https://api-docs.deepseek.com/updates/" target="_blank" rel="noopener noreferrer">DeepSeek · Atualizações ↗</a><a href="https://qwenlm.github.io/qwen-code-docs/en/blog/updates/weekly-update-2026-11-19/" target="_blank" rel="noopener noreferrer">Qwen · Atualizações ↗</a><a href="https://www.minimax.io/blog/minimax-m31f" target="_blank" rel="noopener noreferrer">MiniMax · Pesquisa ↗</a></div></section>
+  </main>
+  <footer><div class="container footer-inner"><span><strong>NEXUS / AI ATLAS</strong> · Catálogo independente de ferramentas de IA</span><span>Design responsivo • Favoritos salvos no navegador • Atualizado em 22/11/2026</span></div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+  'use strict';
+  const CATEGORIES = [
+    {id:'assistentes',name:'Assistentes & LLMs',icon:'✦',color:'#9af5bd'},
+    {id:'codigo',name:'Código & Apps',icon:'⌘',color:'#8cbaff'},
+    {id:'dados',name:'Dados & Analytics',icon:'▥',color:'#81e5db'},
+    {id:'imagem',name:'Imagem & Design',icon:'◈',color:'#c4a6fb'},
+    {id:'pesquisa',name:'Pesquisa',icon:'⌕',color:'#82c6ef'},
+    {id:'audio',name:'Áudio & Música',icon:'♫',color:'#f8b789'},
+    {id:'video',name:'Vídeo',icon:'▶',color:'#f6a9bc'},
+    {id:'documentos',name:'Documentos',icon:'▤',color:'#bbd69e'},
+    {id:'traducao',name:'Tradução',icon:'◎',color:'#92d6e5'},
+    {id:'educacao',name:'Educação',icon:'◇',color:'#f1d487'},
+    {id:'agentes',name:'Automação & Agentes',icon:'⚙',color:'#9bc7fc'},
+    {id:'negocios',name:'Negócios & Marketing',icon:'↗',color:'#c6b6fb'}
+  ];
+  // Estrutura: [nome, categoria, descrição, endereço oficial, versão (opcional), destaque (0/1), tags (string com |), URL da fonte da versão (opcional), símbolo]
+  // "Fonte" representa documentação/anúncio. Não significa que a assinatura inclua determinado modelo.
+
+  let TOOLS = []; // Dados privados carregados somente após autorização no Firestore.
+  const els = {cards:document.getElementById('cards'),chips:document.getElementById('chips'),search:document.getElementById('search'),sort:document.getElementById('sort'),results:document.getElementById('results'),favFilter:document.getElementById('favFilter'),favCount:document.getElementById('favCount'),empty:document.getElementById('empty'),toast:document.getElementById('toast')};
+  const FAVORITES_KEY='nexus-ai-atlas-favorites-v1';
+  let favorites = new Set();
+  try{const saved=JSON.parse(localStorage.getItem(FAVORITES_KEY)||'[]');if(Array.isArray(saved))favorites=new Set(saved.filter(x=>typeof x==='string'));}catch(e){}
+  let category='all',onlyFavorites=false,searchTerm='';
+  const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  const catById=id=>CATEGORIES.find(c=>c.id===id);
+  const favId=t=>norm(t.name).replace(/[^a-z0-9]+/g,'-');
+  function toast(message){els.toast.textContent=message;els.toast.classList.add('visible');clearTimeout(toast.timeout);toast.timeout=setTimeout(()=>els.toast.classList.remove('visible'),2200)}
+  function saveFavorites(){try{localStorage.setItem(FAVORITES_KEY,JSON.stringify([...favorites]))}catch(e){toast('Não foi possível salvar neste navegador.')}}
+  function renderChips(){const counts=Object.fromEntries(CATEGORIES.map(c=>[c.id,TOOLS.filter(t=>t.cat===c.id).length]));els.chips.innerHTML=[`<button class="chip ${category==='all'?'active':''}" type="button" data-cat="all">Todas <em>${TOOLS.length}</em></button>`,...CATEGORIES.map(c=>`<button class="chip ${category===c.id?'active':''}" type="button" data-cat="${c.id}">${esc(c.icon)} ${esc(c.name)} <em>${counts[c.id]}</em></button>`)].join('')}
+  function match(t){const c=catById(t.cat);return (category==='all'||t.cat===category)&&(!onlyFavorites||favorites.has(favId(t)))&&(!searchTerm||norm([t.name,t.version,t.desc,t.tags.join(' '),c.name].join(' ')).includes(norm(searchTerm)))}
+  function render(){
+    renderChips();
+    let list=TOOLS.filter(match);
+    const sorting=els.sort.value;
+    if(sorting==='az')list.sort((a,b)=>a.name.localeCompare(b.name,'pt-BR'));
+    else if(sorting==='za')list.sort((a,b)=>b.name.localeCompare(a.name,'pt-BR'));
+    else list.sort((a,b)=>Number(b.featured)-Number(a.featured)||a.name.localeCompare(b.name,'pt-BR'));
+    els.cards.innerHTML=list.map(t=>{
+      const c=catById(t.cat);const fav=favorites.has(favId(t));
+      return `<article class="tool-card" style="--card-color:${c.color}"><div class="tool-head"><span class="tool-logo" aria-hidden="true">${esc(t.icon)}</span><button class="star ${fav?'active':''}" type="button" data-star="${t.id}" aria-pressed="${fav}" aria-label="${fav?'Remover '+esc(t.name)+' dos favoritos':'Adicionar '+esc(t.name)+' aos favoritos'}" title="${fav?'Remover dos favoritos':'Adicionar aos favoritos'}">${fav?'★':'☆'}</button></div><h3 class="tool-title">${esc(t.name)}</h3><p class="tool-version">${t.version?'Modelo: '+esc(t.version):'Plataforma de IA'}</p><p class="tool-desc">${esc(t.desc)}</p><div class="tool-tags"><span class="tag">${esc(c.name)}</span>${t.tags.slice(0,2).map(tag=>`<span class="tag">${esc(tag)}</span>`).join('')}${t.featured?'<span class="tag featured">Destaque</span>':''}</div><div class="card-actions"><a class="go-link" href="${esc(t.url)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ${esc(t.name)} em nova guia">Acessar plataforma ↗</a>${t.source?`<a class="source-link" href="${esc(t.source)}" target="_blank" rel="noopener noreferrer" title="Ver anúncio ou documentação oficial do modelo">Fonte ↗</a>`:''}</div></article>`
+    }).join('');
+    els.empty.style.display=list.length?'none':'block';
+    els.results.innerHTML=`<strong>${list.length}</strong> ${list.length===1?'ferramenta encontrada':'ferramentas encontradas'}${category!=='all'?' · '+esc(catById(category).name):''}`;
+    els.favFilter.classList.toggle('is-on',onlyFavorites);
+    els.favFilter.setAttribute('aria-pressed',String(onlyFavorites));
+    els.favCount.textContent=favorites.size;
+  }
+  function setCategory(id){category=id;render()}
+  function reset(){category='all';onlyFavorites=false;searchTerm='';els.search.value='';els.sort.value='featured';render()}
+  els.chips.addEventListener('click',e=>{const b=e.target.closest('[data-cat]');if(b)setCategory(b.dataset.cat)});
+  els.cards.addEventListener('click',e=>{const b=e.target.closest('[data-star]');if(!b)return;const t=TOOLS[Number(b.dataset.star)];if(!t)return;const id=favId(t);if(favorites.has(id)){favorites.delete(id);toast('Removido dos favoritos')}else{favorites.add(id);toast('Adicionado aos favoritos ★')}saveFavorites();render()});
+  els.search.addEventListener('input',e=>{searchTerm=e.target.value;render()});
+  els.sort.addEventListener('change',render);
+  els.favFilter.addEventListener('click',()=>{onlyFavorites=!onlyFavorites;render()});
+  document.getElementById('clearFilters').addEventListener('click',reset);
+  document.getElementById('emptyClear').addEventListener('click',reset);
+  document.querySelectorAll('[data-jump]').forEach(b=>b.addEventListener('click',()=>{
+    const jump=b.dataset.jump;
+    category=jump==='criacao'?'imagem':jump;
+    onlyFavorites=false;searchTerm='';els.search.value='';render();
+  }));
+  document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();els.search.focus();els.search.select()}if(e.key==='Escape'&&document.activeElement===els.search)els.search.blur()});
+  // Disponível para o módulo de autenticação, que só chama depois do Firestore permitir o acesso.
+  window.nexusLoadCatalog=function(raw){
+    if(!Array.isArray(raw)||raw.some(r=>!Array.isArray(r)||r.length<9))throw Error('Formato de catálogo inválido.');
+    TOOLS=raw.map((r,i)=>({id:i,name:r[0],cat:r[1],desc:r[2],url:r[3],version:r[4],featured:!!r[5],tags:r[6]?r[6].split('|'):[],source:r[7],icon:r[8]}));
+    document.getElementById('totalTools').textContent=TOOLS.length;
+    document.getElementById('totalCats').textContent=CATEGORIES.length;
+    document.getElementById('totalVersions').textContent=TOOLS.filter(t=>t.version).length;
+    render();
+  };
+  window.nexusClearCatalog=function(){
+    TOOLS=[];
+    els.cards.replaceChildren();
+    els.chips.replaceChildren();
+    els.results.textContent='';
+    document.getElementById('totalTools').textContent='—';
+    document.getElementById('totalCats').textContent='—';
+    document.getElementById('totalVersions').textContent='—';
+  };
+  </script>
+  <script type="module">
+    import { firebaseConfig, firebaseConfigured } from './firebase-config.js';
+
+    const status=document.getElementById('authStatus');
+    const login=document.getElementById('loginGoogle');
+    const loginLabel=document.getElementById('loginLabel');
+    const emailSlot=document.getElementById('sessionEmail');
+    let auth,db,unsubscribePermission=null,session=0;
+    function setStatus(message,type='info',showButton=false,label='Continuar com Google'){
+      status.textContent=message;
+      status.className='auth-status'+(type==='error'?' error':type==='ok'?' ok':'');
+      login.hidden=!showButton;
+      login.disabled=false;
+      loginLabel.textContent=label;
+    }
+    function lock(){
+      document.body.classList.remove('is-authorized');
+      window.nexusClearCatalog?.();
+      emailSlot.textContent='';
+    }
+    if(!firebaseConfigured){
+      setStatus('Configuração pendente: preencha firebase-config.js e configure o Firebase conforme o guia incluído no pacote.','error');
+    }else{
+      try{
+        const [appSDK,authSDK,firestoreSDK] = await Promise.all([
+          import('https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js'),
+          import('https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js'),
+          import('https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js')
+        ]);
+        const {initializeApp}=appSDK;
+        const {getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged}=authSDK;
+        const {getFirestore,doc,getDoc,onSnapshot}=firestoreSDK;
+        const app=initializeApp(firebaseConfig);
+        auth=getAuth(app); db=getFirestore(app);
+        const provider=new GoogleAuthProvider();
+        provider.setCustomParameters({prompt:'select_account'});
+        login.addEventListener('click',async()=>{
+          login.disabled=true;
+          setStatus('Abrindo login do Google...');
+          try{
+            if(auth.currentUser) await signOut(auth);
+            await signInWithPopup(auth,provider);
+          }catch(err){
+            const code=String(err.code||'');
+            setStatus(code==='auth/popup-closed-by-user'||code==='auth/cancelled-popup-request'?'Login cancelado. Você pode tentar novamente.':code==='auth/unauthorized-domain'?'Domínio não autorizado. Adicione o domínio do site em Authentication → Settings → Authorized domains.':code==='auth/popup-blocked'?'O navegador bloqueou a janela de login. Permita pop-ups e tente novamente.':'Não foi possível entrar. Verifique as configurações do Firebase. ('+code+')','error',true);
+          }
+        });
+        document.getElementById('exitGoogle').addEventListener('click',async()=>{
+          lock();
+          if(unsubscribePermission){unsubscribePermission();unsubscribePermission=null;}
+          await signOut(auth);
+        });
+        onAuthStateChanged(auth,user=>{
+          const generation=++session;
+          if(unsubscribePermission){unsubscribePermission();unsubscribePermission=null;}
+          lock();
+          if(!user){setStatus('Acesso restrito. Faça login com uma conta Google autorizada.','info',true);return;}
+          if(!user.email||!user.emailVerified){setStatus('Seu e-mail não está verificado. Entre com uma conta Google válida.','error',true,'Trocar conta Google');return;}
+          const email=user.email.trim().toLowerCase();
+          setStatus('Verificando autorização para '+email+'...');
+          unsubscribePermission=onSnapshot(doc(db,'authorizedUsers',email),async snap=>{
+            if(generation!==session)return;
+            if(!snap.exists()||snap.data().enabled!==true){
+              lock();
+              setStatus('Acesso não autorizado para '+email+'.\nPeça ao administrador para liberar esse endereço de e-mail no painel do Firebase.','error',true,'Entrar com outra conta');
+              return;
+            }
+            setStatus('E-mail autorizado. Carregando catálogo privado...','ok');
+            try{
+              const catalog=await getDoc(doc(db,'content','catalog'));
+              if(generation!==session)return;
+              if(!catalog.exists()||!Array.isArray(catalog.data().tools)){
+                lock();setStatus('Sua conta está autorizada, mas o catálogo ainda não foi importado pelo administrador.','error',true,'Trocar conta Google');return;
+              }
+              window.nexusLoadCatalog(catalog.data().tools);
+              emailSlot.textContent=email;
+              document.body.classList.add('is-authorized');
+            }catch(err){
+              if(generation!==session)return;
+              lock();setStatus('Não foi possível consultar o catálogo. Confira as regras do Firestore. ('+String(err.code||'erro')+')','error',true,'Trocar conta Google');
+            }
+          },err=>{
+            if(generation!==session)return;
+            lock();setStatus('Não foi possível verificar a permissão. Confirme as regras do Firestore. ('+String(err.code||'erro')+')','error',true,'Trocar conta Google');
+          });
+        });
+      }catch(err){setStatus('Erro ao iniciar o Firebase: '+String(err.message||err),'error');}
+    }
+  </script>
+</body>
+</html>
