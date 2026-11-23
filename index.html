@@ -291,8 +291,14 @@
   document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();els.search.focus();els.search.select()}if(e.key==='Escape'&&document.activeElement===els.search)els.search.blur()});
   // Disponível para o módulo de autenticação, que só chama depois do Firestore permitir o acesso.
   window.nexusLoadCatalog=function(raw){
-    if(!Array.isArray(raw)||raw.some(r=>!Array.isArray(r)||r.length<9))throw Error('Formato de catálogo inválido.');
-    TOOLS=raw.map((r,i)=>({id:i,name:r[0],cat:r[1],desc:r[2],url:r[3],version:r[4],featured:!!r[5],tags:r[6]?r[6].split('|'):[],source:r[7],icon:r[8]}));
+    // Aceita o formato original do JSON (listas) e o formato válido no Firestore (objetos).
+    if(!Array.isArray(raw))throw Error('Formato de catálogo inválido.');
+    const normalized=raw.map(r=>Array.isArray(r)?r:[
+      r?.name, r?.cat, r?.desc, r?.url, r?.version, r?.featured,
+      r?.tags, r?.source, r?.icon
+    ]);
+    if(normalized.some(r=>r.length<9||typeof r[0]!=='string'||typeof r[3]!=='string'))throw Error('Formato de catálogo inválido.');
+    TOOLS=normalized.map((r,i)=>({id:i,name:r[0],cat:r[1],desc:r[2],url:r[3],version:r[4],featured:!!r[5],tags:r[6]?String(r[6]).split('|'):[],source:r[7],icon:r[8]}));
     document.getElementById('totalTools').textContent=TOOLS.length;
     document.getElementById('totalCats').textContent=CATEGORIES.length;
     document.getElementById('totalVersions').textContent=TOOLS.filter(t=>t.version).length;

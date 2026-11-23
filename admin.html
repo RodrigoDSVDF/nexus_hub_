@@ -61,9 +61,18 @@ else {
   $('import').addEventListener('click',async()=>{const file=$('catalogFile').files[0];if(!file){status('Selecione primeiro o arquivo catalog-data.json.',true);return}const button=$('import');button.disabled=true;
     try{const raw=JSON.parse(await file.text()),tools=raw.tools;if(!Array.isArray(tools)||tools.length===0||tools.some(t=>!Array.isArray(t)||t.length!==9||!String(t[3]).startsWith('https://')))throw Error('JSON inválido. Cada ferramenta deve ter nove campos e URL HTTPS.');
       const size=new Blob([JSON.stringify(tools)]).size;if(size>600000)throw Error('Catálogo muito grande para um único documento.');
-      await setDoc(doc(db,'content','catalog'),{schemaVersion:1,tools,updatedAt:serverTimestamp(),updatedBy:auth.currentUser.email});
+      // O Firestore Standard não permite arrays diretamente dentro de arrays.
+      // Transformamos as nove posições de cada ferramenta em um objeto nomeado.
+      const storedTools = tools.map(r => ({
+        name:r[0], cat:r[1], desc:r[2], url:r[3], version:r[4],
+        featured:Boolean(r[5]), tags:r[6], source:r[7], icon:r[8]
+      }));
+      await setDoc(doc(db,'content','catalog'),{
+        schemaVersion:2, tools:storedTools,
+        updatedAt:serverTimestamp(), updatedBy:auth.currentUser.email
+      });
       await catalogInfo();status('Catálogo publicado com sucesso no Firestore ('+tools.length+' ferramentas).');
-    }catch(err){status('Falha na importação: '+String(err.code||err.message||err),true)}finally{button.disabled=false}
+    }catch(err){status('Falha na importação: '+(err.code ? err.code+' — ' : '')+String(err.message||err),true)}finally{button.disabled=false}
   });
 } catch(error){ status('Não foi possível carregar o Firebase. Confira a conexão à internet e a configuração. ('+String(error.message||error)+')',true) }
 }

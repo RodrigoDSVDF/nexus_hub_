@@ -1,4 +1,5 @@
-
+// Configuracao publica do aplicativo Web "hub-nexus" no Firebase.
+// A seguranca dos dados depende das regras do Firestore e do Firebase Authentication.
 export const firebaseConfig = {
   apiKey: "AIzaSyCa6w4AuXvSBvKizyLGnP-QSQFH29DMaME",
   authDomain: "hub-nexus.firebaseapp.com",
@@ -9,5 +10,7 @@ export const firebaseConfig = {
   measurementId: "G-2ENVBQFLW2"
 };
 
-export const firebaseConfigured = true;
-
+export const firebaseConfigured = Boolean(
+  firebaseConfig.apiKey && firebaseConfig.authDomain &&
+  firebaseConfig.projectId && firebaseConfig.appId
+);
