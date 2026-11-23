@@ -1,10 +1,12 @@
+
 export const firebaseConfig = {
-  apiKey: "COLE_SUA_API_KEY",
+  apiKey: "AIzaSyCa6w4AuXvSBvKizyLGnP-QSQFH29DMaME",
   authDomain: "hub-nexus.firebaseapp.com",
   projectId: "hub-nexus",
-  appId: "COLE_SEU_APP_ID"
+  storageBucket: "hub-nexus.firebasestorage.app",
+  messagingSenderId: "479191373089",
+  appId: "1:479191373089:web:e54f08cf68903710221a60",
+  measurementId: "G-2ENVBQFLW2"
 };
 
-export const firebaseConfigured = !Object.values(firebaseConfig).some(v =>
-  !v || v.includes('COLE_AQUI') || v.includes('SEU_PROJETO')
-);
+export const firebaseConfigured = true;
