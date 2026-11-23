@@ -18,6 +18,10 @@
     .wrap{width:min(1100px,calc(100% - 40px));margin:0 auto}.top{height:83px;border-bottom:1px solid #24323c;display:flex;align-items:center}.nav{display:flex;align-items:center;justify-content:space-between;gap:15px}.logo{display:flex;align-items:center;gap:12px;font:700 20px 'Space Grotesk',sans-serif;letter-spacing:-.7px}.mark{display:grid;place-items:center;width:39px;height:39px;border-radius:12px;background:linear-gradient(130deg,#a1f9cf,#6bcafa);color:#07120e;font-weight:800}.mini{color:#89b8aa;font-size:11px;letter-spacing:1.4px;font-weight:800}.navlink{font-size:12px;color:#b3c9d0;border:1px solid #344751;padding:9px 13px;border-radius:10px}
     .main{display:grid;grid-template-columns:1.07fr .93fr;gap:60px;align-items:start;padding:72px 0 90px}.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #3d594b;background:#163128;color:#acffd8;padding:7px 12px;border-radius:30px;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase}.eyebrow:before{content:"";width:7px;height:7px;background:var(--mint);border-radius:50%;box-shadow:0 0 10px var(--mint)}h1,h2,h3,p{margin-top:0}h1{font:700 clamp(38px,5.1vw,64px)/1.07 'Space Grotesk',sans-serif;letter-spacing:-2.6px;margin:23px 0 20px}h1 span{background:linear-gradient(100deg,#a5f3ce,#8acbfc);background-clip:text;color:transparent}.lede{font-size:16px;color:#acbdc8;line-height:1.8;max-width:530px}.points{list-style:none;padding:0;margin:30px 0;display:grid;gap:16px}.points li{display:flex;gap:12px;align-items:start;font-size:13px;color:#d6e5eb}.check{display:grid;place-items:center;flex:none;width:23px;height:23px;border:1px solid #40735c;background:#1e4133;border-radius:50%;font-size:11px;color:#c2ffdc;font-weight:800}.footnote{border-top:1px solid #2c3c46;color:#8fa3af;padding-top:22px;font-size:12px;max-width:550px}
     .offer{background:linear-gradient(145deg,rgba(28,42,48,.99),rgba(13,20,28,.99));border:1px solid #3d5a56;border-radius:24px;box-shadow:0 22px 90px rgba(0,0,0,.35);padding:32px;position:relative;overflow:hidden}.offer:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#70e7a8,#91c9ff,#c6b9ff)}.offerhead{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:24px}.offerhead strong{font:700 17px 'Space Grotesk',sans-serif}.tag{border:1px solid #3c6951;border-radius:20px;padding:5px 9px;font-size:10px;font-weight:800;color:#aaf7ce;background:#19352a}.price{font:700 35px 'Space Grotesk',sans-serif;letter-spacing:-1px;margin:3px 0}.duration{font-size:12px;color:#9fb5bd;margin:0 0 23px}.user{border:1px solid #40535c;background:#101e27;border-radius:13px;padding:14px 15px;margin:21px 0}.user small{display:block;color:#98aebe;font-size:11px;margin-bottom:6px}.emailrow{display:flex;align-items:center;justify-content:space-between;gap:10px}.email{font-size:14px;font-weight:800;overflow-wrap:anywhere}.copy{flex:none;border:1px solid #4c6c71;background:#1c353b;border-radius:8px;padding:6px 9px;color:#dbf5e9;font-size:11px}.primary{width:100%;display:flex;justify-content:center;align-items:center;gap:8px;padding:16px;background:var(--mint);color:#072017;border:1px solid #b6ffdc;border-radius:13px;font-weight:800;font-size:14px;transition:transform .2s}.primary:hover{transform:translateY(-2px);background:#baffdd}.primary[aria-disabled="true"]{opacity:.55;pointer-events:none}.errornote{color:#ffd2c6;background:#342420;border:1px solid #76524e;border-radius:10px;padding:12px;font-size:12px}.steps{margin:26px 0 0;border-top:1px solid #33434e;padding-top:23px}.steps h3{font:700 15px 'Space Grotesk',sans-serif}.steps ol{margin:0;padding-left:22px;color:#a9bbc7;font-size:12px;line-height:2}.steps strong{color:#eef6fa}.support{display:grid;gap:10px;margin-top:20px}.secondary{display:flex;align-items:center;justify-content:center;padding:12px 15px;border:1px solid #4e686c;border-radius:11px;color:#c5e8d8;font-weight:700;font-size:12px;background:#15262e;text-align:center}.secondary:hover{border-color:#8ce0bc}.muted{color:#97aab6;font-size:12px}.notice{font-size:12px;color:#9bb0bc;margin:15px 0 0}.sr-only{position:absolute;left:-9999px}.foot{border-top:1px solid #20313b;padding:24px 0;color:#8ba0ac;font-size:11px}.footinner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.status{min-height:1.3em;color:#a7f9ca;font-size:12px;margin-top:10px}
+    .account-switch{margin-top:11px;width:100%;display:flex;align-items:center;justify-content:center;gap:9px;border:1px solid #568b7a;background:#19342e;color:#bafadd;padding:12px;border-radius:10px;font-size:13px;font-weight:800;transition:background .2s,border-color .2s}
+    .account-switch:hover{background:#22483b;border-color:#91f4c0}.account-switch:disabled{opacity:.6;cursor:wait}
+    .switch-note{color:#95abbd;font-size:11px;margin:8px 0 0}
+    .switch-error{color:#ffbdad;font-size:12px;margin-top:9px}
     @media(max-width:800px){.main{grid-template-columns:1fr;gap:32px;padding:43px 0 50px}.offer{max-width:600px}.wrap{width:min(650px,calc(100% - 34px))}}@media(max-width:440px){h1{letter-spacing:-1.8px}.offer{padding:22px}.navlink{font-size:11px}.email{font-size:12px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
   </style>
 </head>
@@ -41,7 +45,11 @@
     <div class="price" id="valor" hidden></div>
     <p class="duration" id="duracao">Confira o valor e as condições de contratação antes de pagar.</p>
     <p class="errornote" id="valor-livre" hidden><strong>Atenção ao valor:</strong> o link personalizado do Mercado Pago pode pedir que você informe o valor. Nesse caso, digite <strong>R$ 19,90</strong>, o preço anunciado pelo NEXUS. O site não consegue fixar o valor diretamente no Mercado Pago. A liberação não é automática.</p>
-    <div class="user"><small>Seu e-mail de acesso — informe este mesmo Gmail ao vendedor</small><div class="emailrow"><span id="email" class="email">Entre no NEXUS com Google para identificar seu e-mail</span><button id="copiar" class="copy" type="button" hidden>Copiar</button></div></div>
+    <div class="user"><small>Seu e-mail de acesso — informe este mesmo Gmail ao vendedor</small><div class="emailrow"><span id="email" class="email">Entre no NEXUS com Google para identificar seu e-mail</span><button id="copiar" class="copy" type="button" hidden>Copiar</button></div>
+      <button id="trocarConta" class="account-switch" type="button">↻ Trocar conta Google</button>
+      <p class="switch-note">Entrou com o Gmail errado? Escolha outra conta sem limpar seu navegador.</p>
+      <p class="switch-error" id="trocarErro" role="alert" hidden></p>
+    </div>
     <a class="primary" id="pagar" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true">Ir para pagamento seguro ↗</a>
     <p class="errornote" id="sem-link" hidden>O pagamento ainda não foi configurado pelo administrador. Volte mais tarde ou solicite atendimento.</p>
     <div class="steps"><h3>Como receber seu acesso</h3><ol><li>Faça o pagamento pelo link oficial.</li><li>Informe ao atendimento <strong>o Gmail exibido acima</strong> e os dados necessários para identificar sua compra.</li><li>Após confirmar a transação no provedor de pagamento, o administrador libera seu Gmail.</li><li>Volte ao NEXUS e entre com a mesma conta Google.</li></ol></div>
@@ -53,7 +61,35 @@
 <footer class="foot"><div class="wrap footinner"><span>NEXUS AI ATLAS · Acesso individual ao diretório</span><span>Processamento de pagamento realizado fora do NEXUS.</span></div></footer>
 <script type="module">
 import {pagamentoConfig as cfg} from './pagamento-config.js?v=1990';
+import {firebaseConfig, firebaseConfigured} from './firebase-config.js';
 const $=id=>document.getElementById(id);
+
+// Troca segura de conta: encerra a sessão Firebase antes de abrir o login novamente.
+// O index.html já usa prompt:'select_account', que mostra o seletor de contas Google.
+$('trocarConta').addEventListener('click', async () => {
+  const button=$('trocarConta');
+  const error=$('trocarErro');
+  error.hidden=true;
+  button.disabled=true;
+  button.textContent='Encerrando sessão Google...';
+  try {
+    if (!firebaseConfigured) throw new Error('Firebase não configurado.');
+    const [{initializeApp,getApps,getApp},{getAuth,signOut}] = await Promise.all([
+      import('https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js'),
+      import('https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js')
+    ]);
+    const app=getApps().length?getApp():initializeApp(firebaseConfig);
+    await signOut(getAuth(app));
+    try { sessionStorage.removeItem('nexus_email_pendente'); } catch (_) {}
+    // Ao voltar, o visitante verá a opção "Continuar com Google" para escolher outro Gmail.
+    window.location.assign(new URL('./', window.location.href).href);
+  } catch (e) {
+    error.textContent='Não foi possível trocar a conta. Tente novamente. ('+String(e.code||e.message||'erro')+')';
+    error.hidden=false;
+    button.disabled=false;
+    button.textContent='↻ Trocar conta Google';
+  }
+});
 let email='';
 try { email=sessionStorage.getItem('nexus_email_pendente')||''; } catch (_) {}
 if(email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
